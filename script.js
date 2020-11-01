@@ -4,13 +4,13 @@ $(document).ready(function() {
     // For loop iterating rows in .container div
     for (var i = 9; i < 18; i++) {
         // Create hourly-row
-        var hourlyRow = $(`<div data-time=${i} id='${i}' class="hourlyRow">`);
+        var hourlyRow = $(`<div data-time=${i} id='${i}' class=" row hourlyRow">`);
         // Create first column for each hour
-        var hour = $('<div class="col-sm-1"> <p class="hour">' + ampmConvert(i) + '</p></div>');
+        var hour = $('<div class="col-sm-1 hour">' + ampmConvert(i) + '</div>');
         // Create second column to record appointments
-        var appointment = $(`<div class="col-sm-10 past"><textarea id=text${i} class="appointment" placeholder="Add appointment..."></textarea></div>`);      
+        var appointment = $(`<textarea class="col-sm-10 past description" id=text${i} placeholder="Add appointment...">`);      
         // Create third column for save button
-        var saveBtn = $(`<div class="col-sm-1"><button class="saveBtn" id=${i}><i class="fas fa-save"></i></button></div></div>`);
+        var saveBtn = $(`<button class="col-sm-1 saveBtn" id=${i}><i class="fas fa-save"></i>`);
         // append hour
         hourlyRow.append(hour);
         //append appointment
@@ -58,7 +58,7 @@ $(document).ready(function() {
     var saveBtn = $('.saveBtn');
     saveBtn.on('click', function(){
         let eventId = $(this).attr('id');
-        let eventText = $(this).parent().siblings().children('.appointment').val();
+        let eventText = $(this).parent().siblings().children('.description').val();
         localStorage.setItem(eventId, eventText);
     });
 });
