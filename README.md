@@ -6,6 +6,8 @@ This project requires building a work schedule planner. Using moment.js and util
 
 Links
 
+![screenshot of planner](assets/images/planner.png)
+
 Application URL: https://ndpenaloza.github.io/homework5/
 
 GitHub Repository URL: https://github.com/ndpenaloza/homework5
