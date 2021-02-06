@@ -8,9 +8,10 @@ $(document).ready(() => {
     // For loop iterating rows in .container div
     for (let i = 9; i < 18; i++) {
         // Template literal 
-        const hourlyRow = $(`<div data-time=${i} id='${i}' class="row hourlyRow">
+        const hourlyRow = $(`<div id='${i}' class="row hourlyRow">
         <div class="col-sm-1 hour">${nineToFive[i]}</div>
-        <textarea class="col-sm-10 past description" id='textarea${i}' placeholder='Add appointment...'></textarea>
+        <textarea class="col-sm-10 past description" data-time='${i}' id='hour-${i}' placeholder='Add appointment...'>
+        </textarea>
         <button class="col-sm-1 saveBtn" id='${i}'><i class="fas fa-save"></i></button>`);
 
         //Appends template literal to empty div and increments each hour
@@ -43,13 +44,17 @@ $(document).ready(() => {
 
     getLocalStorage();
 
+    
+
+    function saveLocalStorage () {
+            let apptTime = $(this).prev().data("time");
+            let apptDescription = $(this).prev().val().trim();
+            localStorage.setItem(apptTime,apptDescription);
+
+    };
+
+
     $('.saveBtn').click(saveLocalStorage);
 
-    function saveLocalStorage (key) {
-        
-        let apptTime = $(this).attr("data-time");
-        let apptDescription = $(`#textarea${key}`).val();
-        localStorage.setItem(apptTime, apptDescription);
 
-    }
 });
