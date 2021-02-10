@@ -8,14 +8,15 @@ $(document).ready(() => {
     // For loop iterating rows in .container div
     for (let i = 9; i < 18; i++) {
         // Template literal 
-        const hourlyRow = $(`<div id='${i}' class="row hourlyRow">
+        const hourlyRow = $(`<div data-time='${i}' id='${i}' class="row hourlyRow">
         <div class="col-sm-1 hour">${nineToFive[i]}</div>
-        <textarea class="col-sm-10 past description" data-time='${i}' id='hour-${i}' placeholder='Add appointment...'>
+        <textarea class="col-sm-10 past description${i}" data-time='${i}' id='textarea${i}' placeholder='Add appointment...'>
         </textarea>
         <button class="col-sm-1 saveBtn" id='${i}'><i class="fas fa-save"></i></button>`);
 
         //Appends template literal to empty div and increments each hour
         $(".hourly-planner").append(hourlyRow);
+
 
     }
 
@@ -28,31 +29,32 @@ $(document).ready(() => {
             } else if (currentTime < $(`#${i}`).data("time")) {
                 $(`#textarea${i}`).addClass( "future");
             } else {
-                $(`textarea${i}`).addClass("past");
+                $(`#textarea${i}`).addClass("past");
             }
         }
     }
 
     updateColors();
-    
-    function getLocalStorage(key) {
-        let value = localStorage.getItem(key);
-        if (value) {
-            $(`#textarea${key}`).text(value);
+
+    //so i think we are going to try to get stuff from local storage and shove that in the textarea 
+    function retrieveLocalStorage () {
+        for (let i = 9; i < 18; i++) {
+            let savedAppt = localStorage.getItem(`${i}`);
+            $(`.col-sm-10.past.description${i}`).append(savedAppt);
         }
     }
 
-    getLocalStorage();
+    retrieveLocalStorage();
+   
 
-    
-
+    // Function to save appointments to local storage
     function saveLocalStorage () {
             let apptTime = $(this).prev().data("time");
             let apptDescription = $(this).prev().val().trim();
             localStorage.setItem(apptTime,apptDescription);
 
-    };
 
+    };
 
     $('.saveBtn').click(saveLocalStorage);
 
