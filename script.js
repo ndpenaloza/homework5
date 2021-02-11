@@ -1,4 +1,5 @@
 $(document).ready(() => {
+
     // Current day and time in Jumbotron
     $('#currentDay').text(moment().format('MMMM Do YYYY, h:mm a'));
 
@@ -16,9 +17,7 @@ $(document).ready(() => {
 
         //Appends template literal to empty div and increments each hour
         $('.hourly-planner').append(hourlyRow);
-
-
-    }
+    };
 
     // Function updates color of textarea depending if the textarea is taking place in the past, present, or future.
     function updateColors() {
@@ -32,7 +31,7 @@ $(document).ready(() => {
                 $(`#textarea${i}`).addClass("past");
             }
         }
-    }
+    };
 
     updateColors();
 
@@ -48,13 +47,11 @@ $(document).ready(() => {
    
     // Function to save appointments to local storage
     function saveLocalStorage () {
-            let apptTime = $(this).prev().data('time');
-            let apptDescription = $(this).prev().val().trim();
-            localStorage.setItem(apptTime, apptDescription);
+        let apptTime = $(this).prev().data('time');
+        let apptDescription = $(this).prev().val().trim();
+        localStorage.setItem(apptTime, apptDescription);
     };
     
     // Magic button to save appointments to localStorage 
     $('.saveBtn').click(saveLocalStorage);
-
-
 });
