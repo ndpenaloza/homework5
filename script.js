@@ -1,11 +1,11 @@
 $(document).ready(() => {
     // Current day and time in Jumbotron
-    $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm a"));
+    $('#currentDay').text(moment().format('MMMM Do YYYY, h:mm a'));
 
     // Array of hours from 9am to 5pm
     const nineToFive = [ , , , , , , , , , "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
     
-    // For loop iterating rows in .container div
+    // For loop iterating rows in .hourly-planner div
     for (let i = 9; i < 18; i++) {
         // Template literal 
         const hourlyRow = $(`<div data-time='${i}' id='${i}' class="row hourlyRow">
@@ -15,7 +15,7 @@ $(document).ready(() => {
         <button class="col-sm-1 saveBtn" id='${i}'><i class="fas fa-save"></i></button>`);
 
         //Appends template literal to empty div and increments each hour
-        $(".hourly-planner").append(hourlyRow);
+        $('.hourly-planner').append(hourlyRow);
 
 
     }
@@ -36,26 +36,24 @@ $(document).ready(() => {
 
     updateColors();
 
-    //so i think we are going to try to get stuff from local storage and shove that in the textarea 
+    // Function retrieves info in localStorage and displays it in the textarea
     function retrieveLocalStorage () {
         for (let i = 9; i < 18; i++) {
             let savedAppt = localStorage.getItem(`${i}`);
             $(`.col-sm-10.past.description${i}`).append(savedAppt);
-        }
-    }
+        };
+    };
 
     retrieveLocalStorage();
    
-
     // Function to save appointments to local storage
     function saveLocalStorage () {
-            let apptTime = $(this).prev().data("time");
+            let apptTime = $(this).prev().data('time');
             let apptDescription = $(this).prev().val().trim();
-            localStorage.setItem(apptTime,apptDescription);
-
-
+            localStorage.setItem(apptTime, apptDescription);
     };
-
+    
+    // Magic button to save appointments to localStorage 
     $('.saveBtn').click(saveLocalStorage);
 
 

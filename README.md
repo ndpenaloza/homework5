@@ -1,24 +1,38 @@
-# homework5 - Work Day Scheduler
+# Homework 5 - Work Day Scheduler
 
-Description
+![GitHub](https://img.shields.io/badge/license-MIT-green)
+
+## Table of Contents
+  1.  [Description](#Description)
+  2.  [Screenshot](#Screenshot)
+  3.  [Links](#Links)
+  4.  [License](#License)
+  5.  [Questions](#Questions)
+
+## Description
 
 This project requires building a work schedule planner. Using moment.js and utilizing the CSS file, the current hour will highlight red, future hours will be green, and past hours will turn gray. Appointments can be saved in each hour and saved in local storage.
 
-Links
+
+## Screenshot
 
 ![screenshot of planner](assets/images/planner.png)
 
-Application URL: https://ndpenaloza.github.io/homework5/
+## Links
 
-GitHub Repository URL: https://github.com/ndpenaloza/homework5
+Application URL: [Work Day Scheduler](https://ndpenaloza.github.io/work-day-scheduler/)
 
+GitHub Repository URL: [Work Day Scheduler Repo](https://github.com/ndpenaloza/work-day-scheduler)
 
-License
-MIT License
+## License:
 
+[MIT](https://opensource.org/licenses/MIT)
 
+<details>
 
-Copyright (c) 2020 Nick D. Penaloza
+<summary>Expand/Collapse</summary>
+
+Copyright (c) 2021 Nick D. Penaloza
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -35,4 +49,11 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+</details>
+
+## Questions
+### GitHub Username:
+ndpenaloza
